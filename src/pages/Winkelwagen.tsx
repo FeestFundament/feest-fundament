@@ -185,7 +185,7 @@ const Winkelwagen = () => {
                 
                 <div className="space-y-3">
                   <Button variant="gold" className="w-full" size="lg">
-                    Bestelling afronden
+                    Huur nu
                   </Button>
                   <Link to="/producten">
                     <Button variant="ghost" className="w-full text-secondary">
