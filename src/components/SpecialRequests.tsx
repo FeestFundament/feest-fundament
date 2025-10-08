@@ -36,10 +36,10 @@ const SpecialRequests = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-secondary mb-4">
-            Speciale aanvragen
+            Specifieke aanvragen
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Heeft u speciale wensen of zoekt u iets dat niet in ons assortiment staat? 
+            Heeft u specifieke aanvragen of zoekt u iets dat niet in ons assortiment staat? 
             Vraag vrijblijvend een offerte aan en wij denken graag met u mee!
           </p>
         </div>
@@ -104,7 +104,7 @@ const SpecialRequests = () => {
                   id="message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Beschrijf hier uw speciale wensen of vragen..."
+                  placeholder="Beschrijf hier uw specifieke aanvraag..."
                   className="bg-background border-border min-h-[120px]"
                   required
                 />
