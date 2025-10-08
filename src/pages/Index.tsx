@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ProductCard from "@/components/ProductCard";
+import SpecialRequests from "@/components/SpecialRequests";
 import Footer from "@/components/Footer";
 import { products } from "@/lib/products";
 
@@ -25,6 +26,8 @@ const Index = () => {
           </div>
         </section>
       </main>
+      
+      <SpecialRequests />
       
       <Footer />
     </div>
