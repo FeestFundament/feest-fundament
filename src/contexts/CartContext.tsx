@@ -5,6 +5,7 @@ export interface CartItem {
   quantity: number;
   startDate: Date;
   endDate: Date;
+  color?: string;
 }
 
 interface CartContextType {
@@ -28,13 +29,15 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         cartItem => 
           cartItem.productId === item.productId && 
           cartItem.startDate.getTime() === item.startDate.getTime() &&
-          cartItem.endDate.getTime() === item.endDate.getTime()
+          cartItem.endDate.getTime() === item.endDate.getTime() &&
+          cartItem.color === item.color
       );
       
       if (existingItem) {
         return prevCart.map(cartItem =>
           cartItem.productId === item.productId && 
-          cartItem.startDate.getTime() === item.startDate.getTime()
+          cartItem.startDate.getTime() === item.startDate.getTime() &&
+          cartItem.color === item.color
             ? { ...cartItem, quantity: cartItem.quantity + item.quantity }
             : cartItem
         );

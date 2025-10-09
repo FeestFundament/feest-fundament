@@ -12,12 +12,14 @@ interface ProductCardProps {
   description: string;
   price: number;
   image: string;
+  colors?: string[];
 }
 
-const ProductCard = ({ id, name, description, price, image }: ProductCardProps) => {
+const ProductCard = ({ id, name, description, price, image, colors }: ProductCardProps) => {
   const [quantity, setQuantity] = useState(1);
   const [showCalendar, setShowCalendar] = useState(false);
   const [selectedDates, setSelectedDates] = useState<{ start: Date; end: Date } | null>(null);
+  const [selectedColor, setSelectedColor] = useState<string>(colors?.[0] || "");
   const { addToCart } = useCart();
 
   const decreaseQuantity = () => {
@@ -40,14 +42,21 @@ const ProductCard = ({ id, name, description, price, image }: ProductCardProps) 
       return;
     }
 
+    if (colors && colors.length > 0 && !selectedColor) {
+      toast.error("Selecteer eerst een kleur");
+      return;
+    }
+
     addToCart({
       productId: id,
       quantity,
       startDate: selectedDates.start,
       endDate: selectedDates.end,
+      color: selectedColor || undefined,
     });
     
-    toast.success(`${quantity}x ${name} toegevoegd aan winkelwagen`);
+    const colorText = selectedColor ? ` (${selectedColor})` : '';
+    toast.success(`${quantity}x ${name}${colorText} toegevoegd aan winkelwagen`);
     setQuantity(1);
     setSelectedDates(null);
   };
@@ -68,6 +77,27 @@ const ProductCard = ({ id, name, description, price, image }: ProductCardProps) 
           <p className="text-2xl font-bold text-secondary">€{price.toFixed(2)}</p>
         </CardContent>
         <CardFooter className="p-4 pt-0 flex flex-col gap-3">
+          {colors && colors.length > 0 && (
+            <div className="w-full">
+              <label className="text-sm font-medium text-foreground mb-2 block">Kleur:</label>
+              <div className="flex gap-2">
+                {colors.map((color) => (
+                  <button
+                    key={color}
+                    onClick={() => setSelectedColor(color)}
+                    className={`flex-1 px-4 py-2 rounded-md border-2 transition-all ${
+                      selectedColor === color
+                        ? 'border-secondary bg-secondary/10 text-secondary font-semibold'
+                        : 'border-border hover:border-secondary/50 text-foreground'
+                    }`}
+                  >
+                    {color}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+          
           <div className="flex items-center justify-center gap-3 w-full">
             <Button
               variant="goldOutline"

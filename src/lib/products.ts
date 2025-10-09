@@ -9,6 +9,7 @@ export interface Product {
   price: number;
   image: string;
   category: string;
+  colors?: string[];
 }
 
 export const products: Product[] = [
@@ -38,11 +39,12 @@ export const products: Product[] = [
   },
   {
     id: "4",
-    name: "Tafelrok zwart",
-    description: "Stijlvolle zwarte tafelrok voor statafels. Voor andere kleuren, vraag een offerte aan.",
+    name: "Tafelrok",
+    description: "Stijlvolle tafelrok voor statafels. Verkrijgbaar in zwart of wit. Voor andere kleuren, vraag een offerte aan.",
     price: 5.00,
     image: statafelImage,
-    category: "Tafels"
+    category: "Tafels",
+    colors: ["Zwart", "Wit"]
   },
   {
     id: "5",
