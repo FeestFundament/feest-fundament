@@ -34,43 +34,44 @@ const Navbar = () => {
                   <NavigationMenuTrigger className="text-secondary hover:text-secondary/80 bg-transparent hover:bg-transparent data-[state=open]:bg-transparent font-medium">
                     Producten
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent>
+                  <NavigationMenuContent className="bg-background border border-border shadow-lg z-50">
                     <div className="grid gap-3 p-6 w-[400px] lg:w-[500px]">
                       <div className="grid gap-2">
                         <h4 className="font-semibold text-sm text-foreground">Tafels</h4>
-                        <Link to="/producten?categorie=alle-tafels" className="text-sm text-muted-foreground hover:text-secondary transition-colors">
+                        <Link to="/producten?categorie=alle-tafels" className="text-sm text-muted-foreground hover:text-secondary transition-colors pl-2">
                           Alle tafels
                         </Link>
-                        <Link to="/producten?categorie=bar" className="text-sm text-muted-foreground hover:text-secondary transition-colors">
-                          Bar
-                        </Link>
-                        <Link to="/producten?categorie=ombouw" className="text-sm text-muted-foreground hover:text-secondary transition-colors">
+                      </div>
+                      
+                      <div className="grid gap-2 pt-2 border-t">
+                        <h4 className="font-semibold text-sm text-foreground">Bar</h4>
+                        <Link to="/producten?categorie=ombouw" className="text-sm text-muted-foreground hover:text-secondary transition-colors pl-2">
                           Ombouw
                         </Link>
-                        <Link to="/producten?categorie=extra-tafel" className="text-sm text-muted-foreground hover:text-secondary transition-colors">
+                        <Link to="/producten?categorie=extra-tafel" className="text-sm text-muted-foreground hover:text-secondary transition-colors pl-2">
                           Extra tafel naast de bar
                         </Link>
-                        <Link to="/producten?categorie=ombouw-1" className="text-sm text-muted-foreground hover:text-secondary transition-colors">
+                        <Link to="/producten?categorie=ombouw-1" className="text-sm text-muted-foreground hover:text-secondary transition-colors pl-2">
                           Ombouw 1
                         </Link>
                       </div>
                       
                       <div className="grid gap-2 pt-2 border-t">
                         <h4 className="font-semibold text-sm text-foreground">Tenten</h4>
-                        <Link to="/producten?categorie=alle-tenten" className="text-sm text-muted-foreground hover:text-secondary transition-colors">
-                          Alle soorten tenten
+                        <Link to="/producten?categorie=alle-tenten" className="text-sm text-muted-foreground hover:text-secondary transition-colors pl-2">
+                          Alle tenten
                         </Link>
                       </div>
                       
                       <div className="grid gap-2 pt-2 border-t">
                         <h4 className="font-semibold text-sm text-foreground">Extra's</h4>
-                        <Link to="/producten?categorie=verlichting" className="text-sm text-muted-foreground hover:text-secondary transition-colors">
+                        <Link to="/producten?categorie=verlichting" className="text-sm text-muted-foreground hover:text-secondary transition-colors pl-2">
                           Verlichting
                         </Link>
-                        <Link to="/producten?categorie=verwarming" className="text-sm text-muted-foreground hover:text-secondary transition-colors">
+                        <Link to="/producten?categorie=verwarming" className="text-sm text-muted-foreground hover:text-secondary transition-colors pl-2">
                           Verwarming
                         </Link>
-                        <Link to="/producten?categorie=accessoires" className="text-sm text-muted-foreground hover:text-secondary transition-colors">
+                        <Link to="/producten?categorie=accessoires" className="text-sm text-muted-foreground hover:text-secondary transition-colors pl-2">
                           Overige accessoires
                         </Link>
                       </div>
