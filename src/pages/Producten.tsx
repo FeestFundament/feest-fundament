@@ -1,7 +1,8 @@
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import ProductCard from "@/components/ProductCard";
 import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
 import { products } from "@/lib/products";
 
 const Producten = () => {
@@ -83,6 +84,29 @@ const Producten = () => {
             </p>
           </div>
         )}
+
+        <div className="text-center py-12 border-t border-border mt-12">
+          <h3 className="text-2xl font-semibold text-secondary mb-6">
+            Meer producten bekijken
+          </h3>
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            <Link to="/producten?categorie=tafels">
+              <Button variant="goldOutline">Tafels</Button>
+            </Link>
+            <Link to="/producten?categorie=bar">
+              <Button variant="goldOutline">Bars</Button>
+            </Link>
+            <Link to="/producten?categorie=tenten">
+              <Button variant="goldOutline">Tenten</Button>
+            </Link>
+            <Link to="/producten?categorie=extras">
+              <Button variant="goldOutline">Extra's</Button>
+            </Link>
+          </div>
+          <Link to="/producten/alle">
+            <Button variant="gold" size="lg">Bekijk alle producten</Button>
+          </Link>
+        </div>
       </main>
       
       <Footer />

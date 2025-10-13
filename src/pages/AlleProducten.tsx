@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import ProductCard from "@/components/ProductCard";
 import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
 import { products } from "@/lib/products";
 
 const AlleProducten = () => {
@@ -50,6 +52,26 @@ const AlleProducten = () => {
             </div>
           </section>
         ))}
+
+        <div className="text-center py-12 border-t border-border mt-16">
+          <h3 className="text-2xl font-semibold text-secondary mb-6">
+            Bekijk per categorie
+          </h3>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/producten?categorie=tafels">
+              <Button variant="goldOutline">Tafels</Button>
+            </Link>
+            <Link to="/producten?categorie=bar">
+              <Button variant="goldOutline">Bars</Button>
+            </Link>
+            <Link to="/producten?categorie=tenten">
+              <Button variant="goldOutline">Tenten</Button>
+            </Link>
+            <Link to="/producten?categorie=extras">
+              <Button variant="goldOutline">Extra's</Button>
+            </Link>
+          </div>
+        </div>
       </main>
       
       <Footer />
