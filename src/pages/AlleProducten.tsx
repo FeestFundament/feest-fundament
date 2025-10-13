@@ -22,7 +22,8 @@ const AlleProducten = () => {
     'Bars': 'Bars',
     'Tenten': 'Tenten',
     'Verlichting': 'Verlichting',
-    'Dranken': 'Dranken'
+    'Dranken': 'Dranken',
+    'Diensten': 'Diensten'
   };
 
   return (

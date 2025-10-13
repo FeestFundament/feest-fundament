@@ -93,5 +93,13 @@ export const products: Product[] = [
     price: 65.00,
     image: statafelImage,
     category: "Dranken"
+  },
+  {
+    id: "11",
+    name: "Opbouw service",
+    description: "Professionele opbouw van alle gehuurde materialen. Wij zorgen ervoor dat alles klaarstaat.",
+    price: 50.00,
+    image: statafelImage,
+    category: "Diensten"
   }
 ];
