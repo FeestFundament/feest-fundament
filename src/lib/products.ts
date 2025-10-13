@@ -85,5 +85,13 @@ export const products: Product[] = [
     price: 15.00,
     image: statafelImage,
     category: "Verlichting"
+  },
+  {
+    id: "10",
+    name: "Fust",
+    description: "Verse fusten voor uw feest. Verschillende merken beschikbaar.",
+    price: 65.00,
+    image: statafelImage,
+    category: "Dranken"
   }
 ];
