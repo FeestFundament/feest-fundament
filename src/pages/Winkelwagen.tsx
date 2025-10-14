@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -16,17 +16,66 @@ import { toast } from "sonner";
 
 const Winkelwagen = () => {
   const { cart, removeFromCart, updateQuantity, updateDates } = useCart();
-  const [postcode, setPostcode] = useState("");
+  const [address, setAddress] = useState("");
+  const [distance, setDistance] = useState<number | null>(null);
+  const [isCalculating, setIsCalculating] = useState(false);
   const [editingItem, setEditingItem] = useState<{ productId: string; startDate: Date } | null>(null);
 
-  const calculateTravelCost = (postalCode: string) => {
-    if (!postalCode) return 0;
-    const firstTwo = parseInt(postalCode.substring(0, 2));
-    if (firstTwo >= 10 && firstTwo <= 20) return 15;
-    return 25;
+  const calculateDistance = async (destinationAddress: string) => {
+    if (!destinationAddress.trim()) {
+      setDistance(null);
+      return;
+    }
+
+    setIsCalculating(true);
+    try {
+      // Geocode destination address
+      const destResponse = await fetch(
+        `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(destinationAddress)},Netherlands&format=json&limit=1`
+      );
+      const destData = await destResponse.json();
+
+      if (destData.length === 0) {
+        toast.error("Adres niet gevonden");
+        setDistance(null);
+        setIsCalculating(false);
+        return;
+      }
+
+      const destLat = parseFloat(destData[0].lat);
+      const destLon = parseFloat(destData[0].lon);
+
+      // Zwolle coordinates
+      const zwolleLat = 52.5168;
+      const zwolleLon = 6.0830;
+
+      // Calculate distance using Haversine formula
+      const R = 6371; // Earth's radius in km
+      const dLat = (destLat - zwolleLat) * Math.PI / 180;
+      const dLon = (destLon - zwolleLon) * Math.PI / 180;
+      const a = 
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(zwolleLat * Math.PI / 180) * Math.cos(destLat * Math.PI / 180) *
+        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      const distanceKm = R * c;
+
+      setDistance(Math.round(distanceKm));
+      toast.success(`Afstand berekend: ${Math.round(distanceKm)} km`);
+    } catch (error) {
+      toast.error("Fout bij berekenen afstand");
+      setDistance(null);
+    } finally {
+      setIsCalculating(false);
+    }
   };
 
-  const travelCost = calculateTravelCost(postcode);
+  const calculateTravelCost = () => {
+    if (distance === null) return 0;
+    return Math.max(distance, 100);
+  };
+
+  const travelCost = calculateTravelCost();
 
   const subtotal = cart.reduce((total, item) => {
     const product = products.find(p => p.id === item.productId);
@@ -160,19 +209,37 @@ const Winkelwagen = () => {
                   </div>
                   
                   <div className="border-t border-border pt-3">
-                    <Label htmlFor="postcode" className="text-secondary">Postcode voor reiskosten</Label>
-                    <Input
-                      id="postcode"
-                      placeholder="1234 AB"
-                      value={postcode}
-                      onChange={(e) => setPostcode(e.target.value)}
-                      className="mt-2 bg-background border-border"
-                    />
+                    <Label htmlFor="address" className="text-secondary">Bezorgadres</Label>
+                    <p className="text-xs text-muted-foreground mt-1 mb-2">
+                      Startlocatie: Zwolle • €1/km • Minimum: €100
+                    </p>
+                    <div className="flex gap-2">
+                      <Input
+                        id="address"
+                        placeholder="Straat, plaats of postcode"
+                        value={address}
+                        onChange={(e) => setAddress(e.target.value)}
+                        onKeyDown={(e) => e.key === 'Enter' && calculateDistance(address)}
+                        className="flex-1 bg-background border-border"
+                      />
+                      <Button
+                        variant="goldOutline"
+                        onClick={() => calculateDistance(address)}
+                        disabled={isCalculating || !address.trim()}
+                      >
+                        {isCalculating ? "..." : "Bereken"}
+                      </Button>
+                    </div>
+                    {distance !== null && (
+                      <p className="text-sm text-muted-foreground mt-2">
+                        Afstand: {distance} km
+                      </p>
+                    )}
                   </div>
                   
-                  {postcode && (
+                  {distance !== null && (
                     <div className="flex justify-between text-sm">
-                      <span className="text-muted-foreground">Reiskosten</span>
+                      <span className="text-muted-foreground">Transportkosten</span>
                       <span className="font-semibold">€{travelCost.toFixed(2)}</span>
                     </div>
                   )}
