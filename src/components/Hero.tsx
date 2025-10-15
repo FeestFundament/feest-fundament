@@ -8,9 +8,7 @@ const Hero = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${heroImage})` }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/80 to-primary/90" />
-      </div>
+      />
       
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto animate-fade-in">
         <h1 className="text-5xl md:text-6xl font-bold text-secondary mb-6 drop-shadow-lg">
