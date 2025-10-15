@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Users } from "lucide-react";
 
 const OverOns = () => {
   return (
@@ -62,6 +62,52 @@ const OverOns = () => {
                 partytenten, geluidsapparatuur en nog veel meer. Al onze producten worden regelmatig 
                 onderhouden en gecontroleerd om de hoogste kwaliteit te garanderen.
               </p>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-card border-border">
+            <CardContent className="p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <Users className="h-8 w-8 text-secondary" />
+                <h2 className="text-3xl font-bold text-secondary">Onze ondernemers</h2>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[
+                  {
+                    name: "Jan de Vries",
+                    role: "Oprichter & CEO",
+                    description: "Met meer dan 15 jaar ervaring in de eventsector is Jan de drijvende kracht achter Feest-Fundament."
+                  },
+                  {
+                    name: "Sara Bakker",
+                    role: "Operationeel Manager",
+                    description: "Sara zorgt ervoor dat alle verhuurprocessen soepel verlopen en klanten tevreden zijn."
+                  },
+                  {
+                    name: "Mark Jansen",
+                    role: "Technisch Specialist",
+                    description: "Mark beheert ons materiaal en zorgt dat alles in perfecte staat blijft voor onze klanten."
+                  },
+                  {
+                    name: "Lisa van Dam",
+                    role: "Sales & Advies",
+                    description: "Lisa helpt klanten met persoonlijk advies om het perfecte pakket voor hun evenement samen te stellen."
+                  },
+                  {
+                    name: "Tom Peters",
+                    role: "Logistiek Coördinator",
+                    description: "Tom coördineert alle leveringen en ophalingen, zodat alles op tijd en volgens afspraak verloopt."
+                  }
+                ].map((person, index) => (
+                  <Card key={index} className="bg-background border-border">
+                    <CardContent className="p-6">
+                      <h3 className="text-xl font-bold text-foreground mb-2">{person.name}</h3>
+                      <p className="text-secondary font-semibold mb-3">{person.role}</p>
+                      <p className="text-muted-foreground text-sm leading-relaxed">{person.description}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </CardContent>
           </Card>
         </div>
