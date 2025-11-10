@@ -18,23 +18,27 @@ const Hero = () => {
       </section>
       
       {/* Hero afbeelding sectie */}
-      <section className="relative h-[500px] flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background/30" />
-        
-        <div className="relative z-10 text-center px-4 animate-fade-in">
-          <Link to="/producten">
-            <Button 
-              variant="gold" 
-              size="xl"
-              className="shadow-2xl"
-            >
-              Bekijk ons assortiment
-            </Button>
-          </Link>
+      <section className="relative py-12 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="relative h-[400px] max-w-5xl mx-auto flex items-center justify-center overflow-hidden rounded-lg">
+            <div 
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${heroImage})` }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background/30" />
+            
+            <div className="relative z-10 text-center px-4 animate-fade-in">
+              <Link to="/producten">
+                <Button 
+                  variant="gold" 
+                  size="xl"
+                  className="shadow-2xl"
+                >
+                  Bekijk ons assortiment
+                </Button>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </>
