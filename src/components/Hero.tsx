@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-party.jpg";
+import logo from "@/assets/logo-new.png";
 
 const Hero = () => {
   return (
@@ -11,12 +12,11 @@ const Hero = () => {
       />
       
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto animate-fade-in">
-        <h1 className="text-5xl md:text-6xl font-bold text-secondary mb-6 drop-shadow-lg">
-          Feest-Fundament
-        </h1>
-        <p className="text-2xl md:text-3xl text-secondary/90 mb-8 font-light">
-          Het fundament voor een geslaagd feest!
-        </p>
+        <img 
+          src={logo} 
+          alt="Feest-Fundament - Het fundament voor een geslaagd feest" 
+          className="w-full max-w-3xl mx-auto mb-8 drop-shadow-2xl"
+        />
         <Link to="/producten">
           <Button 
             variant="gold" 
