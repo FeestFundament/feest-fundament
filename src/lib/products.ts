@@ -85,6 +85,15 @@ export const products: Product[] = [
     id: "5",
     name: "Party tent 3x3m",
     description: "Waterdichte partytent, ideaal voor elk evenement.",
+    price: 30.00,
+    image: statafelImage,
+    category: "Tenten",
+    visible: true
+  },
+  {
+    id: "12",
+    name: "Party tent 6x3m",
+    description: "Grote waterdichte partytent, perfect voor grotere evenementen.",
     price: 45.00,
     image: statafelImage,
     category: "Tenten",
