@@ -120,7 +120,7 @@ export const products: Product[] = [
   {
     id: "11",
     name: "Opbouw service",
-    description: "Professionele opbouw van alle gehuurde materialen. Wij zorgen ervoor dat alles klaarstaat.",
+    description: "Professionele opbouw van alle gehuurde materialen. Startprijs €50 + €30 per uur + reiskosten.",
     price: 50.00,
     image: statafelImage,
     category: "Diensten",
