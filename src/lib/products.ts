@@ -127,5 +127,15 @@ export const products: Product[] = [
     category: "Diensten",
     visible: true,
     priceType: "fixed"
+  },
+  {
+    id: "13",
+    name: "Afbouw service",
+    description: "Professionele afbouw van alle gehuurde materialen. Startprijs €50 + €30 per uur + reiskosten.",
+    price: 50.00,
+    image: statafelImage,
+    category: "Diensten",
+    visible: true,
+    priceType: "fixed"
   }
 ];
