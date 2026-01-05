@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Hashrouter, Routes, Route } from "react-router-dom";
 import { CartProvider } from "@/contexts/CartContext";
 import { AuthProvider } from "@/contexts/AuthContext";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -34,7 +34,7 @@ const App = () => (
             using relative routing avoids blank screens when the server
             doesn't rewrite unknown routes to /index.html.
           */}
-          <BrowserRouter basename={import.meta.env.BASE_URL}>
+          <Hashrouter basename="/feest-fundament">
             <ScrollToTop />
             <Routes>
               <Route path="/" element={<Index />} />
