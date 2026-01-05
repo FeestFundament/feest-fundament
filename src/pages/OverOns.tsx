@@ -13,7 +13,7 @@ const OverOns = () => {
           Over ons
         </h1>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto text-lg">
-          Het fundament voor een geslaagd feest sinds 2010
+          Het fundament voor een geslaagd feest sinds 2010!
         </p>
         
         <div className="max-w-4xl mx-auto space-y-8">
@@ -69,7 +69,7 @@ const OverOns = () => {
             <CardContent className="p-8">
               <div className="flex items-center gap-3 mb-6">
                 <Users className="h-8 w-8 text-secondary" />
-                <h2 className="text-3xl font-bold text-secondary">Onze ondernemers</h2>
+                <h2 className="text-3xl font-bold text-secondary">Onze feestbeesten</h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {[
@@ -87,16 +87,6 @@ const OverOns = () => {
                     name: "Mark Jansen",
                     role: "Technisch Specialist",
                     description: "Mark beheert ons materiaal en zorgt dat alles in perfecte staat blijft voor onze klanten."
-                  },
-                  {
-                    name: "Lisa van Dam",
-                    role: "Sales & Advies",
-                    description: "Lisa helpt klanten met persoonlijk advies om het perfecte pakket voor hun evenement samen te stellen."
-                  },
-                  {
-                    name: "Tom Peters",
-                    role: "Logistiek Coördinator",
-                    description: "Tom coördineert alle leveringen en ophalingen, zodat alles op tijd en volgens afspraak verloopt."
                   }
                 ].map((person, index) => (
                   <Card key={index} className="bg-background border-border">
