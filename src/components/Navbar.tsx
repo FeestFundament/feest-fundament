@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useCart } from "@/contexts/CartContext";
 import { useAuth } from "@/contexts/AuthContext";
-import logo from "@/assets/logo-primary.png";
+import logo from "@/assets/logo-cropped.png";
 import { useState } from "react";
 import {
   NavigationMenu,
