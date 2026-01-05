@@ -13,7 +13,7 @@ const OverOns = () => {
           Over ons
         </h1>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto text-lg">
-          Het fundament voor een geslaagd feest sinds 2010!
+          Het fundament voor een geslaagd feest!
         </p>
         
         <div className="max-w-4xl mx-auto space-y-8">
@@ -22,11 +22,11 @@ const OverOns = () => {
               <h2 className="text-3xl font-bold text-secondary mb-4">Wie zijn wij?</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
                 Feest-Fundament is uw betrouwbare partner voor de verhuur van professionele feestartikelen. 
-                Met jarenlange ervaring in de eventsector bieden wij een breed assortiment aan hoogwaardige 
+                Met een frisse blik in de eventsector bieden wij een breed assortiment aan hoogwaardige 
                 producten voor elk type evenement.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Of u nu een intiem familiefeest, een groots bedrijfsevenement of een bruisend festival 
+                Of u nu een familiefeest, een groots bedrijfsevenement of een bruisend festival 
                 organiseert, wij zorgen ervoor dat u beschikt over de juiste materialen om uw evenement 
                 tot een succes te maken.
               </p>
@@ -74,19 +74,19 @@ const OverOns = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {[
                   {
-                    name: "Jan de Vries",
-                    role: "Oprichter & CEO",
-                    description: "Met meer dan 15 jaar ervaring in de eventsector is Jan de drijvende kracht achter Feest-Fundament."
+                    name: "Mick Ceylan",
+                    role: "Oprichter & Manager sociale media",
+                    description: " Mick is onze social media wizard. Met creativiteit, humor en een feilloos gevoel voor trends brengt hij ons merk tot leven op elk platform. Als oprichter stond hij aan de wieg van het idee en weet hij precies hoe je online buzz creëert én vasthoudt. Scroll-stopping content? Mick’s territory. ."
                   },
                   {
-                    name: "Sara Bakker",
-                    role: "Operationeel Manager",
-                    description: "Sara zorgt ervoor dat alle verhuurprocessen soepel verlopen en klanten tevreden zijn."
+                    name: "Kasper Gras",
+                    role: "Oprichter & Manager sales",
+                    description: " Kasper is een echt feestbeest. Met aanstekelijk enthousiasme en een scherp commercieel inzicht ziet hij kansen waar anderen ze missen. Als oprichter weet hij dromen om te zetten in groei en sterke samenwerkingen. Energie, ambitie en resultaat: dat is Kasper. ."
                   },
                   {
-                    name: "Mark Jansen",
-                    role: "Technisch Specialist",
-                    description: "Mark beheert ons materiaal en zorgt dat alles in perfecte staat blijft voor onze klanten."
+                    name: "Floris Emmerik",
+                    role: "Oprichter & Manager HR",
+                    description: "Floris is de sfeerbewaker en teambuilder van het bedrijf. Als manager HR zorgt hij voor een fijne cultuur waarin iedereen kan groeien en stralen. Als oprichter gelooft hij dat succes begint bij mensen — en die visie voel je elke dag op de werkvloer. "
                   }
                 ].map((person, index) => (
                   <Card key={index} className="bg-background border-border">
