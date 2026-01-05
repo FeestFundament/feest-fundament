@@ -167,10 +167,8 @@ const ProductCard = ({ id, name, description, price, image, colors, priceType = 
           <h3 className="text-xl font-semibold text-secondary mb-2">{name}</h3>
           <p className="text-muted-foreground text-sm mb-3 flex-1">{description}</p>
           <p className="text-2xl font-bold text-secondary mt-auto">€{price.toFixed(2)} {priceType === "daily" && <span className="text-sm font-normal text-muted-foreground">per dag</span>}</p>
-        </CardContent>
-        <CardFooter className="p-4 pt-0 flex flex-col gap-3">
           {colors && colors.length > 0 && (
-            <div className="w-full">
+            <div className="w-full mt-3">
               <label className="text-sm font-medium text-foreground mb-2 block">Kleur:</label>
               <div className="flex gap-2">
                 {colors.map((color) => (
@@ -189,6 +187,8 @@ const ProductCard = ({ id, name, description, price, image, colors, priceType = 
               </div>
             </div>
           )}
+        </CardContent>
+        <CardFooter className="p-4 pt-0 flex flex-col gap-3">
           
           <div className="flex items-center justify-center gap-3 w-full">
             <Button
