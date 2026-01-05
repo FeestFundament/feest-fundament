@@ -76,15 +76,15 @@ const OverOns = () => {
                   {
                     name: "Mick Ceylan",
                     role: "Oprichter & Manager sociale media",
-                    description: " Mick is onze social media wizard. Met creativiteit, humor en een feilloos gevoel voor trends brengt hij ons merk tot leven op elk platform. Als oprichter stond hij aan de wieg van het idee en weet hij precies hoe je online buzz creëert én vasthoudt. Scroll-stopping content? Mick’s territory. ."
+                    description: " Mick is onze social media wizard. Met creativiteit, humor en een feilloos gevoel voor trends brengt hij ons merk tot leven op elk platform. Als oprichter stond hij aan de wieg van het idee en weet hij precies hoe je online buzz creëert én vasthoudt. Scroll-stopping content? Mick territory."
                   },
                   {
                     name: "Kasper Gras",
                     role: "Oprichter & Manager sales",
-                    description: " Kasper is een echt feestbeest. Met aanstekelijk enthousiasme en een scherp commercieel inzicht ziet hij kansen waar anderen ze missen. Als oprichter weet hij dromen om te zetten in groei en sterke samenwerkingen. Energie, ambitie en resultaat: dat is Kasper. ."
+                    description: " Kasper is een echt feestbeest. Met aanstekelijk enthousiasme en een scherp commercieel inzicht ziet hij kansen waar anderen ze missen. Als oprichter weet hij dromen om te zetten in groei en sterke samenwerkingen. Energie, ambitie en resultaat: dat is Kasper."
                   },
                   {
-                    name: "Floris Emmerik",
+                    name: "Floris van Emmerik",
                     role: "Oprichter & Manager HR",
                     description: "Floris is de sfeerbewaker en teambuilder van het bedrijf. Als manager HR zorgt hij voor een fijne cultuur waarin iedereen kan groeien en stralen. Als oprichter gelooft hij dat succes begint bij mensen — en die visie voel je elke dag op de werkvloer. "
                   }
