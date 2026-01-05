@@ -1,6 +1,10 @@
-import statafelImage from "@/assets/statafel-wit.jpg";
-import biertafelImage from "@/assets/biertafel.jpg";
+import statafelImage from "@/assets/statafel-wit-new.jpg";
+import biertafelImage from "@/assets/biertafel-set.jpg";
 import barImage from "@/assets/bar.jpg";
+import tafelrokImage from "@/assets/tafelrok.jpg";
+import partytent3x3Image from "@/assets/partytent-3x3.jpg";
+import partytent3x6Image from "@/assets/partytent-3x6.jpg";
+import combidealTentenImage from "@/assets/combideal-tenten.jpg";
 
 export interface Product {
   id: string;
@@ -77,7 +81,7 @@ export const products: Product[] = [
     name: "Tafelrok",
     description: "Stijlvolle tafelrok voor statafels. Verkrijgbaar in zwart of wit. Voor andere kleuren, vraag een offerte aan.",
     price: 4.99,
-    image: statafelImage,
+    image: tafelrokImage,
     category: "Tafels",
     colors: ["Zwart", "Wit"],
     visible: true
@@ -87,7 +91,7 @@ export const products: Product[] = [
     name: "Party tent 3x3m",
     description: "Waterdichte partytent, ideaal voor elk evenement.",
     price: 30.00,
-    image: statafelImage,
+    image: partytent3x3Image,
     category: "Tenten",
     visible: true
   },
@@ -96,7 +100,16 @@ export const products: Product[] = [
     name: "Party tent 6x3m",
     description: "Grote waterdichte partytent, perfect voor grotere evenementen.",
     price: 45.00,
-    image: statafelImage,
+    image: partytent3x6Image,
+    category: "Tenten",
+    visible: true
+  },
+  {
+    id: "14",
+    name: "Combideal Tenten",
+    description: "Voordelige combideal: Party tent 3x3m én Party tent 6x3m samen. Bespaar op uw tentenverhuur!",
+    price: 70.00,
+    image: combidealTentenImage,
     category: "Tenten",
     visible: true
   },
