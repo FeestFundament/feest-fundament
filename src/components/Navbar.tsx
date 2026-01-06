@@ -29,9 +29,11 @@ const Navbar = () => {
   return (
     <nav className="bg-primary border-b border-border sticky top-0 z-50 backdrop-blur-sm bg-primary/95">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center">
-            <img src={logo} alt="Feest-Fundament Logo" className="h-16 md:h-20 w-auto" />
+        <div className="flex items-center justify-between h-[70px]">
+          <Link to="/" className="flex items-center justify-center">
+            <div className="h-12 md:h-14 overflow-hidden flex items-end">
+              <img src={logo} alt="Feest-Fundament Logo" className="h-16 md:h-20 w-auto object-cover object-bottom" />
+            </div>
           </Link>
           
           {/* Desktop menu */}
