@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useCart } from "@/contexts/CartContext";
 import { useAuth } from "@/contexts/AuthContext";
-import logo from "@/assets/logo-navbar.png";
+import logo from "@/assets/logo-primary.png";
 import { useState } from "react";
 import {
   NavigationMenu,
@@ -29,9 +29,9 @@ const Navbar = () => {
   return (
     <nav className="bg-primary border-b border-border sticky top-0 z-50 backdrop-blur-sm bg-primary/95">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-[70px]">
+        <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="Feest-Fundament Logo" className="h-32 md:h-40 w-auto" />
+            <img src={logo} alt="Feest-Fundament Logo" className="h-16 md:h-20 w-auto" />
           </Link>
           
           {/* Desktop menu */}
