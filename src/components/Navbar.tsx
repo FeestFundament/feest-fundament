@@ -29,9 +29,9 @@ const Navbar = () => {
   return (
     <nav className="bg-primary border-b border-border sticky top-0 z-50 backdrop-blur-sm bg-primary/95">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-15">
+        <div className="flex items-center justify-between h-10">
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="Feest-Fundament Logo" className="h-15 md:h-19 w-auto" />
+            <img src={logo} alt="Feest-Fundament Logo" className="h-10 md:h-15 w-auto" />
           </Link>
           
           {/* Desktop menu */}
