@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { useCart } from "@/contexts/CartContext";
 import { useAuth } from "@/contexts/AuthContext";
 import logo from "@/assets/logo-primary.png";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -25,6 +25,46 @@ const Navbar = () => {
   const { user, signOut } = useAuth();
   const cartItemCount = getCartItemCount();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [hasBeenClicked, setHasBeenClicked] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setMenuOpen(false);
+        setHasBeenClicked(false);
+      }
+    };
+
+    if (menuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [menuOpen]);
+
+  const handleTriggerClick = (e: React.MouseEvent) => {
+    if (!hasBeenClicked) {
+      // First click: open/keep open and mark as clicked
+      e.preventDefault();
+      setMenuOpen(true);
+      setHasBeenClicked(true);
+    } else {
+      // Second click: allow toggle
+      setMenuOpen(!menuOpen);
+      if (menuOpen) {
+        setHasBeenClicked(false);
+      }
+    }
+  };
+
+  const handleLinkClick = () => {
+    setMenuOpen(false);
+    setHasBeenClicked(false);
+  };
 
   return (
     <nav className="bg-primary border-b border-border sticky top-0 z-50 backdrop-blur-sm bg-primary/95">
@@ -40,36 +80,41 @@ const Navbar = () => {
               Home
             </Link>
             
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-secondary hover:text-secondary/80 bg-transparent hover:bg-transparent data-[state=open]:bg-transparent font-medium">
-                    Producten
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent className="bg-background border border-border shadow-lg z-50">
-                    <div className="grid gap-3 p-6 w-[300px]">
-                      <div className="grid gap-2 pb-2 border-b">
-                        <Link to="/producten/alle" className="font-bold text-base text-secondary hover:text-secondary/80 transition-colors">
-                          Alle producten
-                        </Link>
+            <div ref={menuRef}>
+              <NavigationMenu value={menuOpen ? "producten" : ""}>
+                <NavigationMenuList>
+                  <NavigationMenuItem value="producten">
+                    <NavigationMenuTrigger 
+                      className="text-secondary hover:text-secondary/80 bg-transparent hover:bg-transparent data-[state=open]:bg-transparent font-medium"
+                      onClick={handleTriggerClick}
+                    >
+                      Producten
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent className="bg-background border border-border shadow-lg z-50">
+                      <div className="grid gap-3 p-6 w-[300px]">
+                        <div className="grid gap-2 pb-2 border-b">
+                          <Link to="/producten/alle" className="font-bold text-base text-secondary hover:text-secondary/80 transition-colors" onClick={handleLinkClick}>
+                            Alle producten
+                          </Link>
+                        </div>
+                        
+                        <div className="grid gap-2">
+                          <Link to="/producten?categorie=tafels" className="font-semibold text-sm text-foreground hover:text-secondary transition-colors" onClick={handleLinkClick}>
+                            Tafels
+                          </Link>
+                        </div>
+                        
+                        <div className="grid gap-2 pt-2 border-t">
+                          <Link to="/producten?categorie=tenten" className="font-semibold text-sm text-foreground hover:text-secondary transition-colors" onClick={handleLinkClick}>
+                            Tenten
+                          </Link>
+                        </div>
                       </div>
-                      
-                      <div className="grid gap-2">
-                        <Link to="/producten?categorie=tafels" className="font-semibold text-sm text-foreground hover:text-secondary transition-colors">
-                          Tafels
-                        </Link>
-                      </div>
-                      
-                      <div className="grid gap-2 pt-2 border-t">
-                        <Link to="/producten?categorie=tenten" className="font-semibold text-sm text-foreground hover:text-secondary transition-colors">
-                          Tenten
-                        </Link>
-                      </div>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+            </div>
             
             <Link to="/specifieke-aanvragen" className="text-secondary hover:text-secondary/80 transition-colors font-medium">
               Specifieke aanvragen
