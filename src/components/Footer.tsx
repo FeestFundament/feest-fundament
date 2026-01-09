@@ -40,10 +40,10 @@ const Footer = () => {
               <a href="#" className="text-secondary hover:text-secondary/80 transition-colors">
                 <Facebook className="h-6 w-6" />
               </a>
-              <a href="#" className="text-secondary hover:text-secondary/80 transition-colors">
+              <a href="https://instagram.com/feestfundament" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-secondary/80 transition-colors">
                 <Instagram className="h-6 w-6" />
               </a>
-              <a href="#" className="text-secondary hover:text-secondary/80 transition-colors">
+              <a href="https://mail.google.com/mail/?view=cm&to=info@feest-fundament.nl" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-secondary/80 transition-colors">
                 <Mail className="h-6 w-6" />
               </a>
             </div>
